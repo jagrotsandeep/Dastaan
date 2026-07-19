@@ -14,11 +14,14 @@ const trackRoutes = require('./routes/trackRoutes');
 connectDB();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://dastaan-frontend.vercel.app'],
+  credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 
-app.get('/', (req, res) => res.send('Dastaaan API running'));
+app.get('/', (req, res) => res.send('Dastaan API running'));
 app.use('/api/auth', authRoutes);
 app.use('/api/stories', storyRoutes);
 app.use('/api/stories/:storyId/comments', commentRoutes);
