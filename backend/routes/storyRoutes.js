@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const protect = require('../middleware/auth');
 const {
-  createStory, getStories, getStoryById, getStoryForEdit,
+  createStory, getStories, getCategoryCounts, getStoryById, getStoryForEdit,
   updateStory, deleteStory, likeStory, reportStory,
 } = require('../controllers/storyController');
 
 router.get('/', getStories);
+router.get('/category-counts', getCategoryCounts);
 router.get('/edit/:id', protect, getStoryForEdit);
 router.get('/:id', getStoryById);
 router.post('/', protect, createStory);

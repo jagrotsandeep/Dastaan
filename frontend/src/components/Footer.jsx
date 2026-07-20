@@ -11,11 +11,11 @@ function Footer() {
               <Feather className="h-4 w-4" />
             </span>
             <strong className="text-xl font-bold text-[#211b1a] dark:text-[#f8eee8]" style={{ fontFamily: "'Eczar', serif" }}>
-  दास्तान
-</strong>
+              दास्तान
+            </strong>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-[#706766]">
-            A home for stories written in the languages of India.
+            दास्तान — हर कहानी की एक अपनी दास्तान होती है। Hindi aur apni matribhasha mein likhi gayi kahaniyon ka ghar.
           </p>
         </div>
 
@@ -41,6 +41,7 @@ function Footer() {
 
       <div className="border-t border-[#4e312a]/13 py-5 text-center">
         <p className="text-sm text-[#706766]">© 2026 Dastaan. Made for every Indian voice.</p>
+        <p className="mt-1 text-xs text-[#706766]">Created by SNDP + Anthropic AI</p>
       </div>
     </footer>
   )

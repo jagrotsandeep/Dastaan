@@ -38,6 +38,20 @@ exports.getStories = async (req, res) => {
   }
 };
 
+exports.getCategoryCounts = async (req, res) => {
+  try {
+    const counts = await Story.aggregate([
+      { $match: { status: 'published' } },
+      { $group: { _id: '$category', count: { $sum: 1 } } },
+    ]);
+    const result = {};
+    counts.forEach((c) => { result[c._id] = c.count; });
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 exports.getStoryById = async (req, res) => {
   try {
     const story = await Story.findById(req.params.id).populate('author', 'username avatar bio');
